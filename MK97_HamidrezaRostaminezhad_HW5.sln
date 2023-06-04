@@ -5,11 +5,11 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MK97_HamidrezaRostaminezhad_HW5", "MK97_HamidrezaRostaminezhad_HW5\MK97_HamidrezaRostaminezhad_HW5.csproj", "{310D9CD9-D498-406A-85B2-7DBFDD598DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Models\Domain.csproj", "{F60D14C2-6622-44F7-9424-E03C7D8C4C2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F60D14C2-6622-44F7-9424-E03C7D8C4C2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{94D5916A-22BD-4463-9CC4-345EA1F245DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{94D5916A-22BD-4463-9CC4-345EA1F245DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{0E605A46-EE6F-4774-A8C7-8DB0D0A14F59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{0E605A46-EE6F-4774-A8C7-8DB0D0A14F59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
