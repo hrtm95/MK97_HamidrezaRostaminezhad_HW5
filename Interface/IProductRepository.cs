@@ -1,4 +1,7 @@
-﻿namespace Interface
+﻿using Domain;
+using Models;
+
+namespace Interface
 {
     public interface IProductRepository
     {
