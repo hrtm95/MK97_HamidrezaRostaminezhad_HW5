@@ -5,7 +5,8 @@ namespace Interface
 {
     public interface IProductRepository
     {
-        string AddProduct(Product product);
+        bool AddProduct(Product product);
+        //string ?? AddProduct(Product product);
         List<Product> GetProductList();
         string GetProductById(int id);
 

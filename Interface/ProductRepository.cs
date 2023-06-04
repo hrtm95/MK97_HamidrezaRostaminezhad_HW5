@@ -10,9 +10,17 @@ namespace Interface
 {
     public class ProductRepository : IProductRepository
     {
-        public string AddProduct(Product product)
+        // public string AddProduct(Product product)??
+        public bool AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            List<Product> Products = GetProductList();
+            if (CheckProductName(product.ProductName))
+            {
+                Products.Add(product);
+                //save on file
+                return true;
+            }                
+            return false;
         }
 
         public string GetProductById(int id)
@@ -32,3 +40,4 @@ namespace Interface
         }
     }
 }
+//need save to file and need get productlist
