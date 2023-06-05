@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Database;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,17 @@ namespace Interface
 {
     public class ProductRepository : IProductRepository
     {
+        private string path = @"..\..\..\..\Database\Product.Json";
+
+
         // public string AddProduct(Product product)??
         public bool AddProduct(Product product)
         {
-            List<Product> Products = GetProductList();
+            List<Product>? Products = GetProductList();
             if (CheckProductName(product.ProductName))
             {
                 Products.Add(product);
-                //save on file
+                DbContext<Product>.WriteJson(Products, path);
                 return true;
             }                
             return false;
@@ -28,9 +32,10 @@ namespace Interface
             throw new NotImplementedException();
         }
 
-        public List<Product> GetProductList()
+        public List<Product>? GetProductList()
         {
-            throw new NotImplementedException();
+            List<Product>? products =  DbContext<Product>.ReadJson(path);
+            return products;
         }
         private bool CheckProductName(string ProductName)
         {
@@ -40,4 +45,3 @@ namespace Interface
         }
     }
 }
-//need save to file and need get productlist
