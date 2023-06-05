@@ -4,6 +4,7 @@ using Domain;
 
 Console.WriteLine("Hello, World!");
 
+#region
 
 //string path = @"..\..\..\..\Database\Product.Json";
 
@@ -21,3 +22,18 @@ Console.WriteLine("Hello, World!");
 //{
 //    Console.WriteLine(product.ProductName);
 //}
+//string path = @"..\..\..\..\Database\Stoc.Json";
+
+//List<Stock> stocks = new List<Stock>()
+//{
+
+//    new Stock(){StockId = 1 ,StockName = "Stock1", ProductId = 1 , ProductPrice = 1000,ProductQuantity = 3},
+//    new Stock(){StockId = 2 ,StockName = "Stock2", ProductId = 2 , ProductPrice = 2000,ProductQuantity = 4}
+//};
+//DbContext<Stock>.WriteJson(stocks, path);
+//List<Stock>? stock = DbContext<Stock>.ReadJson(path);
+//foreach (Stock s in stock)
+//{
+//    Console.WriteLine(s.StockName);
+//}
+#endregion 
