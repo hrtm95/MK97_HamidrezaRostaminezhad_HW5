@@ -11,9 +11,7 @@ namespace Interface
 {
     public class ProductRepository : IProductRepository
     {
-        private string path = @"..\..\..\..\Database\Product.Json";
-
-
+        private string path = Paths.product;
         //public string AddProduct(Product product)??
         public bool AddProduct(Product product)
         {
