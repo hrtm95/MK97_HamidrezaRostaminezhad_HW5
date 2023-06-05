@@ -14,7 +14,7 @@ namespace Interface
         private string path = @"..\..\..\..\Database\Product.Json";
 
 
-        // public string AddProduct(Product product)??
+        //public string AddProduct(Product product)??
         public bool AddProduct(Product product)
         {
             List<Product>? Products = GetProductList();
@@ -29,7 +29,13 @@ namespace Interface
 
         public string GetProductById(int id)
         {
-            throw new NotImplementedException();
+            List<Product>? Products = GetProductList();
+            var ProductName = Products.FirstOrDefault(p => p.ProductId == id);
+            if (ProductName == null)
+            {
+                return ProductName.ProductName;
+            }
+            return null;
         }
 
         public List<Product>? GetProductList()
