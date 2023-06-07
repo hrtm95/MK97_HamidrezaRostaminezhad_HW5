@@ -2,6 +2,17 @@
 using Database;
 using Domain;
 using Interface;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+using IHost host = Host.CreateDefaultBuilder(args).ConfigureServices(services =>
+{
+    services.AddScoped<IProductRepository, ProductRepository>();
+    services.AddScoped<IStockRepository, StockRepository>();
+}).Build();
+
+var Product = host.Services.GetService<IProductRepository>();
+var Stock = host.Services.GetRequiredService<IStockRepository>();
 
 Console.WriteLine("Hello, World!");
 
@@ -38,9 +49,15 @@ Console.WriteLine("Hello, World!");
 //    Console.WriteLine(s.StockName);
 //}
 #endregion 
-StockRepository stockRepository = new StockRepository();
-Console.WriteLine(
-stockRepository.BuyProduct(new Stock()
-{
-    ProductId = 5,ProductPrice = 1000 ,ProductQuantity = 1
-}));
+//StockRepository stockRepository = new StockRepository();
+//Console.WriteLine(
+//stockRepository.BuyProduct(new Stock()
+//{
+//    ProductId = 5,ProductPrice = 1000 ,ProductQuantity = 1
+//}));
+//Console.WriteLine(
+//stockRepository.SaleProduct(2, 8));
+
+
+
+
