@@ -40,6 +40,13 @@ namespace Interface
                     }
                 }
                 DbContext<Stock>.WriteJson(tempstock, Paths.stock);
+
+                string logtext = $"Bye product by id {productInStock.ProductId} \n" +
+                                 $"Last Quantity is {stock.ProductQuantity} new Quantity is {newQuantity}\n" +
+                                 $"Last price is {stock.ProductPrice} and new Price is {newPrice} ";
+                Logs.Log(logtext);
+
+
                 return $"The {stock.StockName} was updated.";
             }
             else
@@ -107,6 +114,11 @@ namespace Interface
                         }
                     }
                     DbContext<Stock>.WriteJson(tempstock, Paths.stock);
+
+                    string logtext = $"Sale in product by id {productId} in {cnt} item\n" +
+                        $"Last Quantyty is {quantity} new Quantyty is {temp_Quantity} ";
+                    Logs.Log(logtext);
+
                     return $"{cnt} items of {stock.StockName} were sold successfully";
                 }
                 else

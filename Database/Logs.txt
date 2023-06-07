@@ -1,0 +1,2 @@
+Time: 6/7/2023 10:51:41 PM
+adds product by ID 6 and Name Hamid_132 and Barcode 22546

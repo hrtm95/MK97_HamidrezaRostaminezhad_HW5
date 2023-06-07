@@ -21,6 +21,8 @@ namespace Interface
                 product.ProductId = Products.Max(x => x.ProductId)+1;
                 Products.Add(product);
                 DbContext<Product>.WriteJson(Products, path);
+                string logtext = $"Add product by ID {product.ProductId} and Name {product.ProductName} and Barcode {product.Barcode}";
+                Logs.Log(logtext);
                 return true;
             }                
             return false;
