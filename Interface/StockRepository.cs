@@ -19,33 +19,37 @@ namespace Interface
         public string BuyProduct(Stock productInStock)
         {
 
-            var stock = stocks.FirstOrDefault (s => s.StockName == productInStock.StockName);
+            var stock = stocks.FirstOrDefault(s => s.ProductId == productInStock.ProductId);
 
             if (stock != null)
             {
-                stock.ProductQuantity = stock.ProductQuantity + productInStock.ProductQuantity;
+                int newQuantity = stock.ProductQuantity + productInStock.ProductQuantity;
 
-                double productPrice = ((stock.ProductPrice * stock.ProductQuantity)+
-                    (productInStock.ProductPrice * productInStock.ProductQuantity))                    
-                    / (stock.ProductQuantity + productInStock.ProductQuantity);
+                double newPrice = ((stock.ProductPrice * stock.ProductQuantity) +
+                (productInStock.ProductPrice * productInStock.ProductQuantity))
+                / (newQuantity);
 
-                stocks.Remove(stocks.FirstOrDefault(s => s.StockName == productInStock.StockName));
-                stocks.Add(stock);
-                DbContext<Stock>.WriteJson(stocks, Paths.stock);
+                List<Stock> tempstock = DbContext<Stock>.ReadJson(Paths.stock);
+                foreach (Stock s in tempstock)
+                {
+                    if (s.StockId == stock.StockId)
+                    {
+                        s.ProductPrice = newPrice;
+                        s.ProductQuantity = newQuantity;
+                    }
+                }
+                DbContext<Stock>.WriteJson(tempstock, Paths.stock);
                 return $"The {stock.StockName} was updated.";
             }
             else
             {
                 productInStock.StockId = stocks.Max(r => r.StockId) + 1;
-
-                var product = (from p in products
-                               where p.ProductName == productInStock.StockName
-                               select p).FirstOrDefault();
+                var product = products.FirstOrDefault(p => p.ProductId == productInStock.ProductId);
                 if (product != null)
                 {
                     productInStock.ProductId = product.ProductId;
                     stocks.Add(productInStock);
-                    DbContext<Stock>.WriteJson (stocks, Paths.stock);
+                    DbContext<Stock>.WriteJson(stocks, Paths.stock);
                     return $"The {product.ProductName} was added to stock.";
                 }
                 else
@@ -79,9 +83,16 @@ namespace Interface
             int quantity = GetProductQuantity(productId);
             if (quantity > cnt)
             {
-                stock.ProductQuantity = stock.ProductQuantity-cnt;
-                stocks.Remove(stocks.FirstOrDefault(s => s.StockName == stock.StockName));
-                stocks.Add(stock);
+                int temp_Quantity = stock.ProductQuantity - cnt;
+
+                List<Stock> tempstock = DbContext<Stock>.ReadJson(Paths.stock);
+                foreach (Stock s in tempstock)
+                {
+                    if (s.StockId == stock.StockId)
+                    {
+                        s.ProductQuantity = temp_Quantity;
+                    }
+                }
                 DbContext<Stock>.WriteJson(stocks, Paths.product);
                 return $"{cnt} items of {stock.StockName} were sold successfully";
             }

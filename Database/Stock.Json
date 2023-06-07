@@ -3,14 +3,21 @@
     "StockId": 1,
     "StockName": "Stock1",
     "ProductId": 1,
-    "ProductQuantity": 3,
+    "ProductQuantity": 4,
     "ProductPrice": 1000.0
   },
   {
     "StockId": 2,
     "StockName": "Stock2",
     "ProductId": 2,
-    "ProductQuantity": 4,
-    "ProductPrice": 2000.0
+    "ProductQuantity": 8,
+    "ProductPrice": 8000.0
+  },
+  {
+    "StockId": 3,
+    "StockName": null,
+    "ProductId": 3,
+    "ProductQuantity": 1,
+    "ProductPrice": 1000.0
   }
 ]

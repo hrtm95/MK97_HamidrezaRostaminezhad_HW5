@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Database;
 using Domain;
+using Interface;
 
 Console.WriteLine("Hello, World!");
 
@@ -37,3 +38,9 @@ Console.WriteLine("Hello, World!");
 //    Console.WriteLine(s.StockName);
 //}
 #endregion 
+StockRepository stockRepository = new StockRepository();
+Console.WriteLine(
+stockRepository.BuyProduct(new Stock()
+{
+    ProductId = 5,ProductPrice = 1000 ,ProductQuantity = 1
+}));
