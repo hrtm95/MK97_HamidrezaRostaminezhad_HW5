@@ -74,6 +74,8 @@ namespace Interface
                                         ProductName = p.ProductName,
                                         Barcode = p.Barcode,
                                     }).ToList();
+            DbContext<StockProductViewModel>.WriteTxt(SalesProductList, Paths.GetSalesProductlist);
+
             return SalesProductList;
         }
 

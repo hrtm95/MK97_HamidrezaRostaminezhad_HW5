@@ -37,6 +37,18 @@ namespace Database
                 return null;
             }
         }
- 
+        public static bool WriteTxt(List<T> list, string path)
+        {
+            using (TextWriter writer = File.CreateText(path))
+            {
+                foreach (var L in list)
+                {
+                    writer.WriteLine(L);
+                }
+                return true;
+            }
+            return false;
+        }
+
     }
 }

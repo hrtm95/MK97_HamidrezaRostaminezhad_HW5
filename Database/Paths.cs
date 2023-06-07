@@ -10,6 +10,7 @@ namespace Database
     {
         public static string product = @"..\..\..\..\Database\Product.Json";
         public static string stock = @"..\..\..\..\Database\Stock.Json";
+        public static string GetSalesProductlist = @"..\..\..\..\Database\GetSalesProductlist.txt";
 
     }
 }
