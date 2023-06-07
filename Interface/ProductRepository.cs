@@ -18,6 +18,7 @@ namespace Interface
             List<Product>? Products = GetProductList();
             if (CheckProductName(product.ProductName))
             {
+                product.ProductId = Products.Max(x => x.ProductId)+1;
                 Products.Add(product);
                 DbContext<Product>.WriteJson(Products, path);
                 return true;

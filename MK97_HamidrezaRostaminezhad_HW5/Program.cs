@@ -75,11 +75,42 @@ while (true)
     string fanc = Console.ReadLine();
     if (fanc == "1")
     {
+        Console.Clear();
+        Console.WriteLine("Enter Product name like ( Hamid_123 ):");
+        string pname = Console.ReadLine();
+        Console.WriteLine("Enter barcode: ");
+        string barcode = Console.ReadLine();
+        var pd = Product.GetProductList().FirstOrDefault( p=> p.ProductName == pname);
+        Console.Clear();
+        if (pd != null)
+        {
+            Console.WriteLine($"{pname} is Exist.");
+            Console.WriteLine("press any kye to show menu:");
+            Console.ReadKey();
 
+        }
+        else
+        {
+            Product product = new Product() { ProductName = pname , Barcode = barcode };
+            if(Product.AddProduct(product))
+                Console.WriteLine($"{pname} Add is Succsess.");
+            else
+                Console.WriteLine($"{pname} is not valid name.");
+
+            Console.WriteLine("Press any kye to show menu:");
+            Console.ReadKey();
+        }
     }
     else if (fanc == "2")
     {
-
+        Console.Clear();
+        List<Product> products = Product.GetProductList();
+        foreach (var p in products)
+        {
+           Console.WriteLine($"ID: {p.ProductId} - Name: {p.ProductName} - Barcode: {p.Barcode}");
+        }
+        Console.WriteLine("\n\nPress any kye to show menu:");
+        Console.ReadKey();
     }
     else if (fanc == "3")
     {

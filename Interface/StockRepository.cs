@@ -104,7 +104,7 @@ namespace Interface
                         s.ProductQuantity = temp_Quantity;
                     }
                 }
-                DbContext<Stock>.WriteJson(stocks, Paths.product);
+                DbContext<Stock>.WriteJson(stocks, Paths.stock);
                 return $"{cnt} items of {stock.StockName} were sold successfully";
             }
             else
