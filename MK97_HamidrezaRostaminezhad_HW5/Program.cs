@@ -80,7 +80,7 @@ while (true)
         string pname = Console.ReadLine();
         Console.WriteLine("Enter barcode: ");
         string barcode = Console.ReadLine();
-        var pd = Product.GetProductList().FirstOrDefault( p=> p.ProductName == pname);
+        var pd = Product.GetProductList().FirstOrDefault(p => p.ProductName == pname);
         Console.Clear();
         if (pd != null)
         {
@@ -91,8 +91,8 @@ while (true)
         }
         else
         {
-            Product product = new Product() { ProductName = pname , Barcode = barcode };
-            if(Product.AddProduct(product))
+            Product product = new Product() { ProductName = pname, Barcode = barcode };
+            if (Product.AddProduct(product))
                 Console.WriteLine($"{pname} Add is Succsess.");
             else
                 Console.WriteLine($"{pname} is not valid name.");
@@ -107,7 +107,7 @@ while (true)
         List<Product> products = Product.GetProductList();
         foreach (var p in products)
         {
-           Console.WriteLine($"ID: {p.ProductId} - Name: {p.ProductName} - Barcode: {p.Barcode}");
+            Console.WriteLine($"ID: {p.ProductId} - Name: {p.ProductName} - Barcode: {p.Barcode}");
         }
         Console.WriteLine("\n\nPress any kye to show menu:");
         Console.ReadKey();
@@ -117,11 +117,11 @@ while (true)
         Console.Clear();
         int id;
         Console.WriteLine("Enter Id to show Product:");
-        if (int.TryParse(Console.ReadLine(),out id))
+        if (int.TryParse(Console.ReadLine(), out id))
         {
             Console.Clear();
             var pname = Product.GetProductById(id);
-            if ( pname != null)
+            if (pname != null)
             {
                 Console.WriteLine($"The name of ID {id} is {pname}");
             }
@@ -142,9 +142,53 @@ while (true)
     }
     else if (fanc == "4")
     {
+        Console.Clear();
+        Console.WriteLine("Enter a Stock Name");
+        string sname = Console.ReadLine();
+        Console.WriteLine("Enter ProductId");
+        int pid;
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out pid))
+                break;
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Press valid number:");
+            }
+        }
+        Console.WriteLine("Enter Quantity of that:");
+        int Qtt;
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out Qtt))
+                break;
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Press valid number:");
+            }
+        }
+        Console.WriteLine("Enter Price of that:");
+        int price;
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out price))
+                break;
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Press valid number:");
+            }
+        }
+
+        Stock stock = new Stock() { ProductId = pid ,StockName = sname,ProductQuantity = Qtt,ProductPrice = price};
+        Console.WriteLine( Stock.BuyProduct(stock));
+        Console.WriteLine("Press any kye to show menu:");
+        Console.ReadKey();
 
     }
-    else if(fanc == "5")
+    else if (fanc == "5")
     {
 
     }
@@ -158,8 +202,8 @@ while (true)
         break;
     }
     else
-    {   
-        Console.Clear() ;
+    {
+        Console.Clear();
         Console.WriteLine("!press true function!");
         Console.WriteLine("press any kye to show  menu");
         Console.ReadKey();

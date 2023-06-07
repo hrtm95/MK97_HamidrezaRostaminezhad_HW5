@@ -10,12 +10,12 @@
     "StockId": 2,
     "StockName": "Stock2",
     "ProductId": 2,
-    "ProductQuantity": 8,
+    "ProductQuantity": 11,
     "ProductPrice": 8000.0
   },
   {
     "StockId": 3,
-    "StockName": null,
+    "StockName": "Stock3",
     "ProductId": 3,
     "ProductQuantity": 1,
     "ProductPrice": 1000.0
