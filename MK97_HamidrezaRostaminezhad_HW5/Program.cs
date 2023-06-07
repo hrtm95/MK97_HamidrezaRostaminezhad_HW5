@@ -190,6 +190,35 @@ while (true)
     }
     else if (fanc == "5")
     {
+        Console.Clear();
+        Console.WriteLine("Enter ProductId");
+        int pid;
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out pid))
+                break;
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Press valid number:");
+            }
+        }
+        Console.WriteLine("Enter Quantity To sale:");
+        int Qtt;
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out Qtt))
+                break;
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Press valid number:");
+            }
+        }
+        Console.Clear();
+        Console.WriteLine( Stock.SaleProduct(pid,Qtt));
+        Console.WriteLine("Press any kye to show menu:");
+        Console.ReadKey();
 
     }
     else if (fanc == "6")
@@ -204,7 +233,7 @@ while (true)
     else
     {
         Console.Clear();
-        Console.WriteLine("!press true function!");
+        Console.WriteLine("--press true function--");
         Console.WriteLine("press any kye to show  menu");
         Console.ReadKey();
     }

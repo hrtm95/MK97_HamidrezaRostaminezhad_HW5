@@ -91,26 +91,30 @@ namespace Interface
         public string SaleProduct(int productId, int cnt)
         {
             var stock = stocks.FirstOrDefault(p => p.ProductId == productId);
-            int quantity = GetProductQuantity(productId);
-            if (quantity > cnt)
+            if (stock != null)
             {
-                int temp_Quantity = stock.ProductQuantity - cnt;
-
-                List<Stock> tempstock = DbContext<Stock>.ReadJson(Paths.stock);
-                foreach (Stock s in tempstock)
+                int quantity = GetProductQuantity(productId);
+                if (quantity > cnt)
                 {
-                    if (s.StockId == stock.StockId)
+                    int temp_Quantity = stock.ProductQuantity - cnt;
+
+                    List<Stock> tempstock = DbContext<Stock>.ReadJson(Paths.stock);
+                    foreach (Stock s in tempstock)
                     {
-                        s.ProductQuantity = temp_Quantity;
+                        if (s.StockId == stock.StockId)
+                        {
+                            s.ProductQuantity = temp_Quantity;
+                        }
                     }
+                    DbContext<Stock>.WriteJson(tempstock, Paths.stock);
+                    return $"{cnt} items of {stock.StockName} were sold successfully";
                 }
-                DbContext<Stock>.WriteJson(stocks, Paths.stock);
-                return $"{cnt} items of {stock.StockName} were sold successfully";
+                else
+                {
+                    return "Insufficient stock";
+                }
             }
-            else
-            {
-                return "Insufficient stock";
-            }
+            else { return "This product is not in stock"; }
         }
         private int GetProductQuantity(int productId)
         {
