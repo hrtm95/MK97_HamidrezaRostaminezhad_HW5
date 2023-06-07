@@ -1,0 +1,3 @@
+StockName: Stock1   ProductName:    ProductPrice:1000   ProductQuantity: 4   Barcode: 
+StockName: Stock2   ProductName:    ProductPrice:8000   ProductQuantity: 8   Barcode: 
+StockName:    ProductName:    ProductPrice:1000   ProductQuantity: 1   Barcode: 

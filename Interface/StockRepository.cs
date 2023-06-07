@@ -4,6 +4,7 @@ using Domain.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,15 @@ namespace Interface
                                         ProductName = p.ProductName,
                                         Barcode = p.Barcode,
                                     }).ToList();
-            DbContext<StockProductViewModel>.WriteTxt(SalesProductList, Paths.GetSalesProductlist);
+            using (TextWriter writer = File.CreateText(Paths.GetSalesProductlist))
+            {
+                foreach (var SPL in SalesProductList)
+                {
+                    writer.WriteLine($"StockName: {SPL.StockName}   ProductName: {SPL.ProductName}   ProductPrice:{SPL.ProductPrice}   ProductQuantity: {SPL.ProductQuantity}   Barcode: {SPL.Barcode}");
+
+                }
+            }
+
 
             return SalesProductList;
         }

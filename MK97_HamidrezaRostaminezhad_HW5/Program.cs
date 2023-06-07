@@ -59,5 +59,5 @@ Console.WriteLine("Hello, World!");
 //stockRepository.SaleProduct(2, 8));
 
 
-
+Stock.GetSalesProductList();
 

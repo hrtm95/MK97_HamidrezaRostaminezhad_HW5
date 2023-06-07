@@ -44,6 +44,7 @@ namespace Database
                 foreach (var L in list)
                 {
                     writer.WriteLine(L);
+
                 }
                 return true;
             }
