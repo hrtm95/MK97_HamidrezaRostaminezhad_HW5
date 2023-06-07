@@ -114,7 +114,31 @@ while (true)
     }
     else if (fanc == "3")
     {
-
+        Console.Clear();
+        int id;
+        Console.WriteLine("Enter Id to show Product:");
+        if (int.TryParse(Console.ReadLine(),out id))
+        {
+            Console.Clear();
+            var pname = Product.GetProductById(id);
+            if ( pname != null)
+            {
+                Console.WriteLine($"The name of ID {id} is {pname}");
+            }
+            else
+            {
+                Console.WriteLine($"ID {id} not Exist");
+            }
+            Console.WriteLine("press any kye to show  menu");
+            Console.ReadKey();
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("!press true function!");
+            Console.WriteLine("press any kye to show  menu");
+            Console.ReadKey();
+        }
     }
     else if (fanc == "4")
     {

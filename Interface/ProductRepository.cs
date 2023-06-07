@@ -30,7 +30,7 @@ namespace Interface
         {
             List<Product>? Products = GetProductList();
             var ProductName = Products.FirstOrDefault(p => p.ProductId == id);
-            if (ProductName == null)
+            if (ProductName != null)
             {
                 return ProductName.ProductName;
             }
