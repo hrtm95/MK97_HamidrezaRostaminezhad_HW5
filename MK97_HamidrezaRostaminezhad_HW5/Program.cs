@@ -59,5 +59,54 @@ Console.WriteLine("Hello, World!");
 //stockRepository.SaleProduct(2, 8));
 
 
-Stock.GetSalesProductList();
+//Stock.GetSalesProductList();
 
+while (true)
+{
+    Console.Clear();
+    Console.WriteLine("Press number list for  continue:");
+    Console.WriteLine("1 - Add Product");
+    Console.WriteLine("2 - Get Product List");
+    Console.WriteLine("3 - Get Product By Id");
+    Console.WriteLine("4 - Buy Product");
+    Console.WriteLine("5 - Sale Product");
+    Console.WriteLine("6 - Get Sales Product List");
+    Console.WriteLine("7 - Exit;");
+    string fanc = Console.ReadLine();
+    if (fanc == "1")
+    {
+
+    }
+    else if (fanc == "2")
+    {
+
+    }
+    else if (fanc == "3")
+    {
+
+    }
+    else if (fanc == "4")
+    {
+
+    }
+    else if(fanc == "5")
+    {
+
+    }
+    else if (fanc == "6")
+    {
+
+    }
+    else if (fanc == "7")
+    {
+        Console.WriteLine("press any kye to exit.");
+        break;
+    }
+    else
+    {   
+        Console.Clear() ;
+        Console.WriteLine("!press true function!");
+        Console.WriteLine("press any kye to show  menu");
+        Console.ReadKey();
+    }
+}
