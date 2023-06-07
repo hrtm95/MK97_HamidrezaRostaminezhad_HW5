@@ -223,9 +223,10 @@ while (true)
     }
     else if (fanc == "6")
     {
-
+        Stock.GetSalesProductList();
+        Console.WriteLine("You can find this Sales Product List in Txt on Database.");
     }
-    else if (fanc == "7")
+    else if (fanc == "6")
     {
         Console.WriteLine("press any kye to exit.");
         break;
